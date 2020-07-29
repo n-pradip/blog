@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock title %}
+
+{% block active_nav_bar_contact %} active {% endblock active_nav_bar_contact %}
+
+{% block body %}
+<div class="container my-3">
+  <h2>Contact us</h2>
+<form method="POST" action="/getting_contacts_data">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="name">Name</label>
+    {{form.name}}
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    {{form.email}}
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone no. </label>
+    {{form.phone_no}}
+  </div>
+  <div class="form-group">
+    <label for="content">Describe your problem</label>
+    {{form.contact_issue}}
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+{% for each in query %}
+<h2>Contact us issues</h2>
+  <p>{{each.name}}</p>
+  <p>{{each.phone_no}}</p>
+  <p>{{each.email}}</p>
+  <p>{{each.contact_issue}}</p>
+  <br>
+{% endfor %}
+
+{% endblock body %}

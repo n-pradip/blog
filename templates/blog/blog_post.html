@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Blogpage{% endblock title %}
+
+{% block body %}
+<div class="container my-5">
+  <div class="col-md-8 blog-main">
+    <h3 class="pb-4 mb-4 font-italic border-bottom">
+      Blog from your fav. author
+    </h3>
+
+    <div class="blog-post">
+      <h2 class="blog-post-title">{{posts.title}}</h2>
+      <p class="blog-post-meta">{{posts.aurthor}} at {{posts.timestamp}}</p>
+      <p>{{posts.content}}</p>
+      {% load static %}
+      <p> <img class="photo_size" src="/media/{{ posts.media_image }}" alt=""></p>
+      <h2>Comment:</h2>
+
+    </div>
+  </div>
+</div>
+{% endblock body %}

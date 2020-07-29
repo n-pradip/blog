@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+<h1>Search results:-</h1>
+{% for each in database_value %}
+<div class="container">
+  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 my-2 shadow-sm h-md-250 position-relative">
+    <div class="col p-4 d-flex flex-column position-static">
+      <strong class="d-inline-block mb-2 text-primary">{{each.title}}</strong>
+      <h3 class="mb-0">{{each.aurthor}}</h3>
+      <div class="mb-1 text-muted">{{each.timestamp}}</div>
+      <p class="card-text mb-auto">{{each.content | truncatechars:150}}</p>
+      <a href="/blog/{{each.slug}}" class="stretched-link">Continue reading</a>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+</div>
+{% endblock body%}
